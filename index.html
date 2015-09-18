@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="stylesheet" href="style.css" type="text/css">
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+	<script src="jquery.js"></script>
+	<script src="buildings.js"></script>
+	<script src="ships.js"></script>
+	<script src="events.js"></script>
+    <script src="research.js"></script>
+    <script src="accounts.js"></script>
+	<script src="engine.js"></script>
+	<script>
+	$(document).ready(function() {
+		//localStorage.removeItem("dgame");
+	});
+	</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<button onclick="remove();" value="remove"></button>
+			<div class="container">
+				<div id="navbar-container">
+					<div class="dgame-border" id="navbar">
+						<ul>
+							<li id="metal">Metal: <p id='metal-amount'></p></li>
+							<li id='crystal'>Crystal: <p id="crystal-amount"></p></li>
+							<li id='fuel'>Fuel: <p id='fuel-amount'></p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="dgame-border" id="messages-container" onclick="Engine.expand(this);">
+					<div id="messages">
+					</div>
+				</div>
+			</div>
+			
+			<div class="container">
+				<div class='sidebar dgame-border' id="left-sidebar">
+					<ul>
+						<li><a href="#">Overview</a></li>
+						<li><a href="#">Buildings</a></li>
+						<li><a href="#">Fleet</a></li>
+						<li><a href="#">Ships</a></li>
+						<li><a href="#">Galaxy</a></li>
+						<li><a href="#">Defense</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container">
+				<div class='sidebar' id="right-sidebar">	<!--<div class='sidebar dgame-border' id="right-sidebar">-->
+				</div>
+			</div>
+			
+			<div class="container">
+				<div class="content dgame-border">
+					<div id="Overview"></div>
+					<div id="Buildings">
+						<ul>
+							<li id='metalmine'></li>
+							<li id='crystalmine'></li>
+							<li id='fuelmine'></li>
+							<li id='power'></li>
+							<li id='robotics'></li>
+							<li id='shipyard'></li>
+							<li id='research'></li>
+							<li id='nanite'></li>
+						</ul>
+					</div>
+					<div id="Fleet"></div>
+					<div id="Ships"></div>
+					<div id="Galaxy"></div>
+					<div id="Defense"></div>
+				</div>
+			</div>
+		</div> 
+	</body>
+</html>
