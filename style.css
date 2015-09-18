@@ -1,6 +1,5 @@
 body {
 	background: #4F5B60;
-	overflow: hidden;
 }
 
 li {
@@ -38,6 +37,42 @@ a:hover {
 .dgame-border {
 	border-radius: 5px !important;
 	border: 3px solid !important;
+}
+
+/*for test suite*/
+footer {margin-top: 5px;}
+footer>#tests:before {
+	content:"TESTS:";
+	color: white;
+	position: absolute;
+}
+
+footer>#tests>#test-list>li:before{
+	content:"--";
+	position: relative;
+	color: white;
+}
+footer>#tests {
+	border: 1px solid black;
+	width: 100%;
+	height: 400px;
+	padding:0px;
+	overflow: auto;
+	background: black;
+}
+
+.test-item {
+	position: relative;
+	text-align: center;
+	overflow: auto;
+}
+
+.pass {
+	color: green;
+}
+
+.fail {
+	color: red;
 }
 
 #wrapper {
