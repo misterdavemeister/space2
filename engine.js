@@ -92,16 +92,19 @@
 		
 		expand: function(el) {
 			//BUG: clicking quickly causes it to grow too large. maybe hardcode height values
-			var value = Number($(el).css('height').replace('px', ''));
+			var heightValue = Number($(el).css('height').replace('px', ''));
+			var widthValue = Number($(el).css('width').replace('px', ''));
 			if ($(el).hasClass('expanded')) {
 				$(el).animate({
-					height: String(value+200)+"px"
+					height: String(heightValue+400)+"px",
+					width: String(widthValue+200)+"px"
 				}, 500);
 				$(el).removeClass('expanded');
 			}
 			else {
 				$(el).animate({
-					height: "100px"
+					height: "100px",
+					width: "800px"
 				},500);
 				$(el).addClass('expanded');
 			}
