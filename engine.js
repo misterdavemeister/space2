@@ -95,11 +95,12 @@
 			/*var heightValue = Number($(el).css('height').replace('px', ''));
 			var widthValue = Number($(el).css('width').replace('px', ''));*/
 			if ($(el).hasClass('not-expanded')) {
+                                $(el).removeClass('not-expanded');
 				$(el).animate({
 					height: String(500)+"px",
 					width: String(1000)+"px"
 				}, 500, function() {
-					$(el).removeClass('not-expanded');
+					//moved
 				});
 			}
 			else {
