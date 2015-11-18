@@ -2,11 +2,11 @@ var Ship = {
 	constructionTime: function(planet, ship) {
 		//construct(this, this.scargo.id)
 		//Returns amount of time to build each ship
-		return Math.floor(((((ship.baseCostMetal + ship.baseCostCrystal) * 360) / 1000 ) / (1 + planet.RoboticsBuilding.level)) / Math.pow(2, planet.NaniteBuilding.level)) * 1000; 
+		return Math.floor(((((ship.baseCostMetal + ship.baseCostCrystal) * 360) / 1000 ) / (1 + planet.RoboticsBuilding.level)) / Math.pow(2, planet.NaniteBuilding.level)) * 1000;
 	},
 	Ships: {
 		SCargo: {
-			name: "Small Cargo", 
+			name: "Small Cargo",
 			baseCostMetal: 2000,
 			baseCostCrystal: 2000,
 			baseCostFuel: 0,
@@ -18,7 +18,7 @@ var Ship = {
 			fuel: 10
 		},
 		LCargo: {
-			name: "Largo Cargo", 
+			name: "Largo Cargo",
 			baseCostMetal: 6000,
 			baseCostCrystal: 6000,
 			baseCostFuel: 0,

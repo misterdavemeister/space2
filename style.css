@@ -40,14 +40,16 @@ a:hover {
 }
 
 /*for test suite*/
-footer {margin-top: 5px;}
+footer {
+  margin-top: 5px;
+}
 footer>#tests:before {
 	content:"TESTS:";
 	color: white;
 	position: absolute;
 }
 
-footer>#tests>#test-list>li:before{
+footer>#tests>#test-list>li:before {
 	content:"--";
 	position: relative;
 	color: white;

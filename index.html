@@ -10,19 +10,17 @@
 	<script src="buildings.js"></script>
 	<script src="ships.js"></script>
 	<script src="events.js"></script>
-    <script src="research.js"></script>
-    <script src="accounts.js"></script>
+  <script src="research.js"></script>
+  <script src="accounts.js"></script>
 	<script src="engine.js"></script>
 	<script src="tests.js"></script>
 	<script>
 	$(document).ready(function() {
-		//localStorage.removeItem("dgame");
 	});
 	</script>
 	</head>
 	<body>
 		<div id="wrapper">
-			<button onclick="remove();" value="remove"></button>
 			<div class="container">
 				<div id="navbar-container">
 					<div class="dgame-border" id="navbar">
@@ -38,7 +36,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="container">
 				<div class='sidebar dgame-border' id="left-sidebar">
 					<ul>
@@ -51,12 +49,12 @@
 					</ul>
 				</div>
 			</div>
-			
+
 			<div class="container">
 				<div class='sidebar' id="right-sidebar">	<!--<div class='sidebar dgame-border' id="right-sidebar">-->
 				</div>
 			</div>
-			
+
 			<div class="container">
 				<div class="content dgame-border">
 					<div id="Overview"></div>
@@ -78,10 +76,10 @@
 					<div id="Defense"></div>
 				</div>
 			</div>
-		</div> 
+		</div>
 	</body>
-	<footer class="dgame-border">
-		<div id="tests">
+	<footer class="dgame-border" onclick="Engine.collapse(document.getElementById('tests'));">
+		<div id="tests" class="uncollapsed" onclick="Engine.collapse(this);">
 			<ul id="test-list">
 			</ul>
 		</div>

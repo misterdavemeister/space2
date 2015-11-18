@@ -14,9 +14,10 @@
 			9: "Colony8"
 		},
 		dgameState: {}, //Used to save state
-		
-		logging: true, 
-		
+
+		logging: true,
+    testing: true,
+
 		/* setup, saving/loading game */
 		//First function called in the engine. Tries to load game, starts new game if no previous game
 		init: function() {
@@ -32,17 +33,17 @@
                 Engine.newGame();
 			}
         },
-		
+
 		loadGame: function(game) {
 			Account.init(game);
 			Engine.saveGame();
 		},
- 
+
         newGame: function() {
 			Account.init();
 			Engine.saveGame();
         },
-		
+
 		display: function(planet) {
 			CurrentPlanet = planet;
 			$("p#metal-amount").html(CurrentPlanet.resources.metal);
@@ -50,7 +51,7 @@
 			$("p#fuel-amount").html(CurrentPlanet.resources.fuel);
 			Building.display(CurrentPlanet, Account);
 		},
-		
+
 		saveGame: function() {
 			if(typeof Storage != 'undefined' && localStorage) {
 			/*	if(Engine._saveTimer != null) {
@@ -64,7 +65,7 @@
 				localStorage.dgame = JSON.stringify(Account);
 			}
 		},
-		
+
 		log: function() {
 			if (this.logging) {
 				for (var p in arguments){
@@ -73,7 +74,7 @@
 				}
 			}
 		},
-		
+
 		systemMessage: function(msg, priority) {
 			//priority = n (neutral), g (good), b (bad)
 			if (priority == undefined) priority = "n";
@@ -83,40 +84,53 @@
 						}, 0000, function() {
 							$(this).toggleClass("new-message");
 						});
-						
 		},
-		
+
 		checkDependencies: function(array) {
 			return array[0].every(function(b) {return b === true;})
 		},
-		
+
 		expand: function(el) {
 			//BUG: clicking quickly causes it to grow too large. maybe hardcode height values
-			/*var heightValue = Number($(el).css('height').replace('px', ''));
-			var widthValue = Number($(el).css('width').replace('px', ''));*/
+			var heightValue = Number($(el).css('height').replace('px', ''));
+			var widthValue = Number($(el).css('width').replace('px', ''));
 			if ($(el).hasClass('not-expanded')) {
-                                $(el).removeClass('not-expanded');
+        $(el).removeClass('not-expanded');
 				$(el).animate({
 					height: String(500)+"px",
 					width: String(1000)+"px"
-				}, 500, function() {
-					//moved
-				});
+				}, 500);
 			}
 			else {
+        $(el).addClass('not-expanded');
 				$(el).animate({
 					height: "100px",
 					width: "800px"
-				},500, function() {
-					$(el).addClass('not-expanded');
-				});
+				},500);
 			}
-		}
+		},
+
+    collapse: function(el) {
+      if ($(el).hasClass("uncollapsed")) {
+        $(el).removeClass("uncollapsed");
+        $(el).hide(500, function() {
+          $(el).addClass("collapsed");
+        });
+      }
+      else if ($(el).hasClass("collapsed")) {
+        $(el).removeClass("collapsed");
+        $(el).show(500, function() {
+          $(el).addClass("uncollapsed");
+        });
+      }
+    }
+
 	};
 })();
 
 $(function() {
   var CurrentPlanet;
   Engine.init();
-  Engine.display(Account.Homeworld); 
+  Engine.display(Account.Homeworld);
+  if (Engine.testing) runTests();
 });
